@@ -29,6 +29,7 @@ h2 { font-size: 36pt; }
   width:100%;
   height:100%;
   padding:10px;
+  color:#888;
 }
 
 .zone.hover {
@@ -71,4 +72,10 @@ h2 { font-size: 36pt; }
   background:white;
   width:100%;
   padding:10px;
+}
+
+.tools p {
+  font-size:16px;
+  margin-top:4px;
+  padding-right:3px;
 }
