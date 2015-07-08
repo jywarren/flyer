@@ -65,6 +65,10 @@ h2 { font-size: 36pt; }
   background:rgba(0,0,0,0.7);
 }
 
+.text.shadow {
+  text-shadow: black 0px 0px 30px;
+}
+
 .tools {
   position:absolute;
   bottom:0;

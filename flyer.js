@@ -68,12 +68,18 @@ jQuery(document).ready(function($) {
     $('.text').css('text-align','left');
   })
 
-  $('.text h1').click(function(e) {
-    $('.text h1').html(prompt("Enter text:"));
+  $('.text h1').dblclick(function(e) {
+    $('.text h1').html(prompt("Enter text:",$('.text h1').html()));
   })
 
-  $('.text h2').click(function(e) {
-    $('.text h2').html(prompt("Enter text:"));
+  $('.text h2').dblclick(function(e) {
+    $('.text h2').html(prompt("Enter text:",$('.text h2').html()));
+  })
+
+  $('.text').draggable();
+
+  $('.shadow').click(function(e) {
+    $('.text').toggleClass('shadow');
   })
 
 });
