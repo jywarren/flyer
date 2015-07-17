@@ -8,6 +8,10 @@ jQuery(document).ready(function($) {
     $('.zone').removeClass('hover');
   });
 
+  var canvas = new fabric.Canvas('c',{ width: $(window).width(),
+                                       height: $(window).height()
+  });
+
   var onDrop = function(e) {
     e.preventDefault();
     e.stopPropagation(); // stops the browser from redirecting.
@@ -24,12 +28,13 @@ jQuery(document).ready(function($) {
           $('body').css('background-size','100%');
           $('.zone').css('background','none');
           $('.zone').css('border','none');
-          $('.zone p').hide();
           $('.text').removeClass('hide');
+          $('.zone').hide();
         }
+
         img.src = event.target.result
       }
-      reader.readAsDataURL(f)
+      reader.readAsDataURL(f);
  
     }
   }
@@ -43,43 +48,60 @@ jQuery(document).ready(function($) {
   $('.zone').on('dragover', onDragOver, false);
   $('.zone')[0].addEventListener('drop', onDrop, false);
 
+  $('.brightness').click(function(e) {
+    img = fabric.Image.fromURL(img.src, function(img) {
+      var width = $(window).width(),
+          height = $(window).height();
+
+      img.scale(width/img.width); // set({ left: 50, top: 100, angle: -15 })
+
+      img.filters.push(
+        new fabric.Image.filters.Brightness({ brightness: 30 }));
+      img.applyFilters(canvas.renderAll.bind(canvas));
+
+      canvas.add(img);
+
+      $('.canvas-container').show();
+    });
+  });
+
   $('.invert').click(function(e) {
     $('.text').toggleClass('white');
-  })
+  });
 
   $('.background').click(function(e) {
     $('.text').toggleClass('background');
     $('.text').toggleClass('white');
-  })
+  });
 
   $('.alright').click(function(e) {
     $('.text').css('text-align','right');
-  })
+  });
 
   $('.top').click(function(e) {
     $('.text').css('margin-top','0');
-  })
+  });
 
   $('.bottom').click(function(e) {
     $('.text').css('margin-top','35%');
-  })
+  });
 
   $('.alleft').click(function(e) {
     $('.text').css('text-align','left');
-  })
+  });
 
   $('.text h1').dblclick(function(e) {
     $('.text h1').html(prompt("Enter text:",$('.text h1').html()));
-  })
+  });
 
   $('.text h2').dblclick(function(e) {
     $('.text h2').html(prompt("Enter text:",$('.text h2').html()));
-  })
+  });
 
   $('.text').draggable();
 
   $('.shadow').click(function(e) {
     $('.text').toggleClass('shadow');
-  })
+  });
 
 });

@@ -21,6 +21,27 @@ h1, h2, h3, h4, h5 {
 h1 { font-size: 72pt; }
 h2 { font-size: 36pt; }
 
+canvas#c {
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+img#image {
+  display:none;
+}
+
+.canvas-container, .upper-canvas {
+  width:100%;
+  height:100%;
+  position:absolute !important;
+  top:0;
+  left:0;
+  display:none;
+}
+
 .zone {
   font-family: Junction Light, sans-serif;
   position:absolute;
